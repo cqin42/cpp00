@@ -6,7 +6,7 @@
 /*   By: christine <christine@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:17:16 by christine         #+#    #+#             */
-/*   Updated: 2023/11/06 22:00:28 by christine        ###   ########.fr       */
+/*   Updated: 2023/11/07 00:28:34 by christine        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void PhoneBook::add()
 		{
 			std::cout << "\n\033[31;1;4mWARNING ,DO YOU WANT REPLACE ❀ INDEX->" << this->index << " ",
 			std::cout << this->contact[this->index].get_firstname() << " BY NEW ONE ? y/n " << std::endl;
-			std::cout << "THIS IS IRREVERSIBLE THIS CONTACT WILL BE FOREVER LOST IF YOU PROCED" << std::endl;
+			std::cout << "THIS IS IRREVERSIBLE THIS CONTACT WILL BE FOREVER LOST IF YOU PROCEED" << std::endl;
 			std::cout << "\033[35;1;0m\n╚>";
 			getline(std::cin, ans);
 			std::cout << "\033[0m";
