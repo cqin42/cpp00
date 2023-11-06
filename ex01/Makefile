@@ -2,7 +2,7 @@ NAME = phonebook
 
 CC = c++
 
-SRC	= Contact.cpp main.cpp PhoneBook.cpp
+SRC	= Contact.cpp main.cpp PhoneBook.cpp toupperString.cpp
 
 OBJ	= $(SRC:.cpp=.o)
 

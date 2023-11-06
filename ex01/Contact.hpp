@@ -6,7 +6,7 @@
 /*   By: cqin <cqin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:22:06 by christine         #+#    #+#             */
-/*   Updated: 2023/11/06 16:45:01 by cqin             ###   ########.fr       */
+/*   Updated: 2023/11/06 19:15:15 by cqin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ private:
 	std::string phone_number;
 	std::string darkest_secret;
 };
+
+std::string toupperString(std::string str);
 
 #endif
