@@ -31,7 +31,6 @@ int	main(int argc, char **argv)
 			{
 				std::cout << (char)toupper(line[j]);
 			}
-			std::cout << " ";
 		}
 		std::cout << "" << std::endl;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christine <christine@student.42.fr>        +#+  +:+       +#+        */
+/*   By: cqin <cqin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:10:54 by christine         #+#    #+#             */
-/*   Updated: 2023/11/07 00:51:34 by christine        ###   ########.fr       */
+/*   Updated: 2023/11/06 18:04:27 by cqin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 #include <iomanip>
 #include <iostream>
 
-int Account::_nbAccounts = 0;
-int Account::_totalAmount = 0;
-int Account::_totalNbDeposits = 0;
-int Account::_totalNbWithdrawals = 0;
-
 Account::Account(void)
 {
+	_nbAccounts = 0;
+	_totalAmount = 0;
+	_totalNbDeposits = 0;
+	_totalNbWithdrawals = 0;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 }
@@ -81,7 +80,7 @@ bool Account::makeWithdrawal(int withdrawal)
 	_displayTimestamp();
 	if (withdrawal > _amount)
 	{
-		std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << "withdrawal:refused" << std::endl;
+		std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawal:refused" << std::endl;
 		return (false);
 	}
 	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawal:";

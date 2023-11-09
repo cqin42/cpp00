@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christine <christine@student.42.fr>        +#+  +:+       +#+        */
+/*   By: cqin <cqin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:17:16 by christine         #+#    #+#             */
-/*   Updated: 2023/11/07 00:28:34 by christine        ###   ########.fr       */
+/*   Updated: 2023/11/06 19:47:04 by cqin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,23 @@ void PhoneBook::print_space(std::string str)
 
 void PhoneBook::search()
 {
-	int	nb;
-
 	std::string str;
+
 	while (1 && !std::cin.eof())
 	{
-		if (this->index == 0)
+		if (this->index == 0 && this->contact[this->index].get_firstname().empty())
 		{
 			std::cout << "\033[31;1;4mNO DATA , ADD SOME CONTACTS BEFORE TO SEARCH ;)\033[0m" << std::endl;
-			break ;
+			break;
 		}
 		std::cout << "\033[0;1m--------------------------------------------- \033[0m" << std::endl;
 		std::cout << "|     \033[0;1mindex|\033[0;1mfirst name| \033[0;1mlast name|  \033[0;1mnickname|\033[0m" << std::endl;
 		std::cout << "\033[0;1m--------------------------------------------- \033[0m" << std::endl;
+
 		for (int i = 0; i < 8; i++)
 		{
 			if (this->contact[i].get_firstname().empty())
-				break ;
+				break;
 			std::cout << "|         ";
 			std::cout << i;
 			std::cout << "|";
@@ -70,12 +70,11 @@ void PhoneBook::search()
 		std::cout << "\033[35;1m╚> ";
 		getline(std::cin, str);
 		std::cout << "\033[0m";
-		nb = atoi(str.c_str());
-		if (!isdigit(str[0]) || nb >= 8 || str.length() > 1
-			|| this->contact[nb].get_firstname().empty())
+		int nb = atoi(str.c_str());
+
+		if (!isdigit(str[0]) || nb >= 8 || str.length() > 1 || this->contact[nb].get_firstname().empty())
 			std::cout << "\n\033[31;1;4mTHIS INDEX " << str << " DOES NOT EXIST.\033[0m" << std::endl;
-		else if (str != "" && nb < 8 && nb >= 0
-			&& !this->contact[nb].get_firstname().empty())
+		else if (str != "" && nb < 8 && nb >= 0 && !this->contact[nb].get_firstname().empty())
 		{
 			std::cout << "YOU CHOOSEN " << nb << std::endl;
 			std::cout << "❀ first name :";
@@ -88,7 +87,7 @@ void PhoneBook::search()
 			std::cout << this->contact[nb].get_phone_number() << std::endl;
 			std::cout << "❀ darkest secret :";
 			std::cout << this->contact[nb].get_darkest_secret() << std::endl;
-			break ;
+			break;
 		}
 	}
 }
@@ -96,23 +95,23 @@ void PhoneBook::search()
 void PhoneBook::add()
 {
 	std::string str;
+
 	if (this->index > 7)
 		this->index = 0;
+
 	if (!this->contact[this->index].get_firstname().empty())
 	{
 		std::string ans;
-		while (1 && !std::cin.eof())
+		while (1)
 		{
-			std::cout << "\n\033[31;1;4mWARNING ,DO YOU WANT REPLACE ❀ INDEX->" << this->index << " ",
-			std::cout << this->contact[this->index].get_firstname() << " BY NEW ONE ? y/n " << std::endl;
-			std::cout << "THIS IS IRREVERSIBLE THIS CONTACT WILL BE FOREVER LOST IF YOU PROCEED" << std::endl;
-			std::cout << "\033[35;1;0m\n╚>";
+			std::cout << "\n\033[31;1;4mWARNING , DO YOU WANT REPLACE ❀ INDEX->" << this->index << " " << this->contact[this->index].get_firstname() << " BY NEW ONE ? y/n" << std::endl;
+			std::cout << "THIS IS IRREVERSIBLE THIS CONTACT WILL BE FOREVER LOST IF YOU PROCED\033[35;1;0m\n╚>" << std::endl;
 			getline(std::cin, ans);
 			std::cout << "\033[0m";
 			if (ans == "n" || ans == "no" || ans == "NO" || ans == "N")
-				return ;
+				return;
 			else if (ans == "y" || ans == "yes" || ans == "YES" || ans == "Y")
-				break ;
+				break;
 		}
 	}
 	while (str == "" && !std::cin.eof())
@@ -123,6 +122,7 @@ void PhoneBook::add()
 		std::cout << "\033[0m";
 		this->contact[this->index].set_firstname(str);
 	}
+
 	str = "";
 	while (str == "" && !std::cin.eof())
 	{
@@ -132,6 +132,7 @@ void PhoneBook::add()
 		std::cout << "\033[0m";
 		this->contact[this->index].set_lastname(str);
 	}
+
 	str = "";
 	while (str == "" && !std::cin.eof())
 	{
@@ -141,6 +142,7 @@ void PhoneBook::add()
 		std::cout << "\033[0m";
 		this->contact[this->index].set_nickname(str);
 	}
+
 	str = "";
 	while (str == "" && !std::cin.eof())
 	{
@@ -150,6 +152,7 @@ void PhoneBook::add()
 		std::cout << "\033[0m";
 		this->contact[this->index].set_phone_number(str);
 	}
+
 	str = "";
 	while (str == "" && !std::cin.eof())
 	{
@@ -159,5 +162,6 @@ void PhoneBook::add()
 		std::cout << "\033[0m";
 		this->contact[this->index].set_darkest_secret(str);
 	}
+
 	this->index++;
 }
