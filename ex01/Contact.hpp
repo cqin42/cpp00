@@ -6,7 +6,7 @@
 /*   By: cqin <cqin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:22:06 by christine         #+#    #+#             */
-/*   Updated: 2023/11/06 19:15:15 by cqin             ###   ########.fr       */
+/*   Updated: 2023/11/09 17:52:26 by cqin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,23 @@ class Contact
 public:
 	Contact();
 	~Contact();
-	void set_firstname(std::string str);
-	void set_lastname(std::string str);
-	void set_nickname(std::string str);
-	void set_phone_number(std::string str);
-	void set_darkest_secret(std::string str);
-	std::string get_firstname() const;
-	std::string get_lastname() const;
-	std::string get_nickname() const;
-	std::string get_phone_number() const;
-	std::string get_darkest_secret() const;
+	void setFirstName(std::string str);
+	void setLastName(std::string str);
+	void setNickname(std::string str);
+	void setPhoneNumber(std::string str);
+	void setDarkestSecret(std::string str);
+	std::string getFirstName() const;
+	std::string getLastName() const;
+	std::string getNickname() const;
+	std::string getPhoneNumber() const;
+	std::string getDarkestSecret() const;
 
 private:
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
+	std::string _firstName;
+	std::string _lastName;
+	std::string _nickname;
+	std::string _phoneNumber;
+	std::string _darkestSecret;
 };
 
 std::string toupperString(std::string str);
