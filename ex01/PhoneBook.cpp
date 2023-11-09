@@ -6,7 +6,7 @@
 /*   By: cqin <cqin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:17:16 by christine         #+#    #+#             */
-/*   Updated: 2023/11/09 17:56:55 by cqin             ###   ########.fr       */
+/*   Updated: 2023/11/09 18:06:10 by cqin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void PhoneBook::search()
 
 	while (1 && !std::cin.eof())
 	{
-		if (this->index == 0)
+		if (this->index == 0 && this->contact[this->index].get_firstname().empty())
 		{
 			std::cout << "\033[31;1;4mNO DATA , ADD SOME CONTACTS BEFORE TO SEARCH ;)\033[0m" << std::endl;
 			break;
@@ -104,12 +104,13 @@ void PhoneBook::add()
 		std::string ans;
 		while (1)
 		{
-			std::cout << "\n\033[31;1;4mWARNING , DO YOU WANT REPLACE ❀ INDEX->" << this->index << this->contact[this->index].getFirstName() << " BY NEW ONE ? y/n" << std::endl;
+			std::cout << "\n\033[31;1;4mWARNING , DO YOU WANT REPLACE ❀ INDEX->" << this->index << " " << this->contact[this->index].getFirstName() << " BY NEW ONE ? y/n" << std::endl;
 			std::cout << "THIS IS IRREVERSIBLE THIS CONTACT WILL BE FOREVER LOST IF YOU PROCED\033[35;1;0m\n╚>" << std::endl;
 			getline(std::cin, ans);
 			std::cout << "\033[0m";
 			if (ans == "n" || ans == "no" || ans == "NO" || ans == "N")
 				return;
+			else if (ans == "y" || ans == "yes" || ans == "YES" || ans == "Y")
 			else if (ans == "y" || ans == "yes" || ans == "YES" || ans == "Y")
 				break;
 		}
